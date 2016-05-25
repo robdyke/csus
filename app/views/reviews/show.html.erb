@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Review title:</strong>
+  <%= @review.review_title %>
+</p>
+
+<p>
+  <strong>Review body:</strong>
+  <%= @review.review_body %>
+</p>
+
+<p>
+  <strong>Sus score:</strong>
+  <%= @review.sus_score %>
+</p>
+
+<p>
+  <strong>Csus score:</strong>
+  <%= @review.csus_score %>
+</p>
+
+<p>
+  <strong>Star rating:</strong>
+  <%= @review.star_rating %>
+</p>
+
+<%= link_to 'Edit', edit_review_path(@review) %> |
+<%= link_to 'Back', reviews_path %>
