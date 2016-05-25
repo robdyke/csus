@@ -3,6 +3,6 @@ class Trust < ActiveRecord::Base
   has_many :hospitals
 
   # validations
-  validates :system_name, presence: true, uniqueness: true
+  validates :trust_name, presence: true, uniqueness: true
 
 end

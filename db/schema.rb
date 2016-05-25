@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525121738) do
+ActiveRecord::Schema.define(version: 20160525133056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,7 +23,10 @@ ActiveRecord::Schema.define(version: 20160525121738) do
     t.decimal  "longitude"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "trust_id"
   end
+
+  add_index "hospitals", ["trust_id"], name: "index_hospitals_on_trust_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.text     "review_title"
@@ -33,7 +36,10 @@ ActiveRecord::Schema.define(version: 20160525121738) do
     t.integer  "star_rating"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
+    t.integer  "user_id"
   end
+
+  add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "systems", force: :cascade do |t|
     t.text     "system_name"
@@ -69,4 +75,6 @@ ActiveRecord::Schema.define(version: 20160525121738) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "hospitals", "trusts"
+  add_foreign_key "reviews", "users"
 end
