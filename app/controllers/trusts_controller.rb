@@ -23,6 +23,6 @@ class TrustsController < ApplicationController
 
   private
     def trust_params
-      params.require(:trust).permit(:trust_name)
+      params.require(:trust).permit(:trust_name, :nhs_code, :trust_post_code, :latitude, :longitude)
     end
 end

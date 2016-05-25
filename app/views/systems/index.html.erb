@@ -1,5 +1,12 @@
-<% @systems.each do |system| %>
-  <div class="entry">
-    <%= system.system_name %>
+<% provide(:title, 'Systems') %>
+<h1>List Systems</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <% @systems.each do |system| %>
+      <div class="entry">
+        <%= system.system_name %>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
