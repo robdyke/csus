@@ -1,1 +1,7 @@
 <%# add navigation links to this file %>
+<% if user_signed_in? %>
+  <li><%= link_to 'Systems', systems_path %></li>
+  
+<% else %>
+
+<% end %>

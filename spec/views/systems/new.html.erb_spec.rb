@@ -8,7 +8,7 @@ RSpec.describe "systems/new", type: :view do
   it "renders new system form" do
     render
 
-    assert_select "form[action=?][method=?]", systems_path, "post" do
+    assert_select "form[action=?][method=?]", system_path, "post" do
     end
   end
 end
