@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160525133056) do
+ActiveRecord::Schema.define(version: 20160605081553) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -53,8 +53,24 @@ ActiveRecord::Schema.define(version: 20160525133056) do
     t.string   "trust_post_code"
     t.decimal  "latitude"
     t.decimal  "longitude"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.integer  "trust_number"
+    t.text     "trust_legal_name"
+    t.text     "trust_display_name"
+    t.text     "trust_type"
+    t.text     "trust_region"
+    t.date     "trust_date_of_establishment"
+    t.string   "trust_main_phone"
+    t.text     "trust_hq_address_line_1"
+    t.text     "trust_hq_address_line_2"
+    t.text     "trust_hq_address_line_3"
+    t.text     "trust_hq_address_line_4"
+    t.text     "trust_postcode"
+    t.text     "trust_country"
+    t.text     "trust_website_url"
+    t.text     "trust_email_pattern"
+    t.text     "trust_nhs_code"
   end
 
   create_table "users", force: :cascade do |t|

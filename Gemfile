@@ -6,6 +6,9 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'devise'
 
+# For timezone information when developing on Windows (why you would want to do this?)ç
+gem 'tzinfo-data'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
