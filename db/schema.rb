@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160605081553) do
+ActiveRecord::Schema.define(version: 20160605084435) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,9 +48,6 @@ ActiveRecord::Schema.define(version: 20160605081553) do
   end
 
   create_table "trusts", force: :cascade do |t|
-    t.text     "trust_name"
-    t.string   "nhs_code"
-    t.string   "trust_post_code"
     t.decimal  "latitude"
     t.decimal  "longitude"
     t.datetime "created_at",                  null: false
