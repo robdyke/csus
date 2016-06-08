@@ -1,6 +1,6 @@
 class TrustsController < ApplicationController
   def index
-    @trusts = Trust.order(:trust_name)
+    @trusts = Trust.order(:trust_legal_name)
   end
 
   def new
@@ -21,8 +21,19 @@ class TrustsController < ApplicationController
     @trust = Trust.find(params[:id])
   end
 
+  def import
+    Trust.import(params[:file])
+    redirect_to trusts_path, notice: "Trusts imported"
+  end
+
+  def destroy
+    Trust.find(params[:id]).destroy
+    flash[:success] = "Trust deleted"
+    redirect_to trusts_url
+  end
+
   private
     def trust_params
-      params.require(:trust).permit(:trust_name, :nhs_code, :trust_post_code, :latitude, :longitude)
+      params.require(:trust).permit(:latitude, :longitude, :created_at, :updated_at, :trust_number, :trust_legal_name, :trust_display_name, :trust_type, :trust_region, :trust_date_of_establishment, :trust_main_phone, :trust_hq_address_line_1, :trust_hq_address_line_2, :trust_hq_address_line_3, :trust_hq_address_line_4, :trust_postcode, :trust_country, :trust_website_url, :trust_email_pattern, :trust_nhs_code)
     end
 end
