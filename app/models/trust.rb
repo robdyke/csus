@@ -14,7 +14,7 @@ class Trust < ActiveRecord::Base
       begin
         Trust.create! row.to_hash
       rescue
-        row
+        puts row
       end
     end
   end

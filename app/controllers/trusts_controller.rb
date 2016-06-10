@@ -17,6 +17,10 @@ class TrustsController < ApplicationController
     end
   end
 
+  def edit
+    @trust = Trust.find(params[:id])
+  end
+
   def show
     @trust = Trust.find(params[:id])
   end
@@ -29,7 +33,7 @@ class TrustsController < ApplicationController
   def destroy
     Trust.find(params[:id]).destroy
     flash[:success] = "Trust deleted"
-    redirect_to trusts_url
+    redirect_to trusts_path
   end
 
   private

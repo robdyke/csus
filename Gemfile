@@ -2,15 +2,18 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.2.6'
 gem 'pg'
-gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+
+# user authentication via Devise
 gem 'devise'
 
 # For timezone information when developing on Windows (why you would want to do this?)ç
 gem 'tzinfo-data'
 
-# Use SCSS for stylesheets
+# Use bootstrap and SCSS for stylesheets
+gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
+
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views

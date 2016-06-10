@@ -1,7 +1,7 @@
-<%= form_for(@trust) do |f| %>
+<%= form_for @trust, :html => {:class => "form-horizontal center"} do |f| %>
   <% if @trust.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@trust.errors.count, "error") %> prohibited this trust from being saved:</h2>
+      <h2><%= pluralize(@trust.errors.count, "error") %> prevented this trust from being saved:</h2>
 
       <ul>
       <% @trust.errors.full_messages.each do |message| %>
@@ -12,27 +12,94 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :trust_name %><br>
-    <%= f.text_area :trust_name %>
+    <%= f.label "Trust NHS Code" %>
+    <%= f.text_area :trust_nhs_code %>
   </div>
 
   <div class="field">
-    <%= f.label :nhs_code %><br>
-    <%= f.text_area :nhs_code %>
+    <%= f.label :trust_legal_name %>
+    <%= f.text_area :trust_legal_name %>
   </div>
 
   <div class="field">
-    <%= f.label :trust_post_code %><br>
-    <%= f.text_area :trust_post_code %>
+    <%= f.label :trust_number %>
+    <%= f.text_area :trust_number %>
   </div>
 
   <div class="field">
-    <%= f.label :latitude %><br>
+    <%= f.label :trust_display_name %>
+    <%= f.text_area :trust_display_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_type %>
+    <%= f.text_area :trust_type %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_region %>
+    <%= f.text_area :trust_region %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_date_of_establishment %>
+    <%= f.text_area :trust_date_of_establishment %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_main_phone %>
+    <%= f.text_area :trust_main_phone %>
+  </div>
+
+  <h2>Trust Address Information</h2>
+
+  <div class="field">
+    <%= f.label :trust_hq_address_line_1 %>
+    <%= f.text_area :trust_hq_address_line_1 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_hq_address_line_2 %>
+    <%= f.text_area :trust_hq_address_line_2 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_hq_address_line_3 %>
+    <%= f.text_area :trust_hq_address_line_3 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_hq_address_line_4 %>
+    <%= f.text_area :trust_hq_address_line_4 %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_postcode %>
+    <%= f.text_area :trust_postcode %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_country %>
+    <%= f.text_area :trust_country %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_website_url %>
+    <%= f.text_area :trust_website_url %>
+  </div>
+
+  <div class="field">
+    <%= f.label :trust_email_pattern %>
+    <%= f.text_area :trust_email_pattern %>
+  </div>
+
+  <div class="field">
+    <%= f.label :latitude %>
     <%= f.text_area :latitude %>
   </div>
 
   <div class="field">
-    <%= f.label :longitude %><br>
+    <%= f.label :longitude %>
     <%= f.text_area :longitude %>
   </div>
 
