@@ -6,10 +6,10 @@
 <br/>
 <br/>
 
-<%= form_tag import_trusts_path, multipart: true do %>
+<%= form_tag import_trusts_path, multipart: true, :class => 'form-inline' do %>
   <%= label_tag 'Import Trusts via CSV' %>
-  <%= file_field_tag :file %>
-  <%= submit_tag "Import CSV" %>
+  <%= file_field_tag :file, class: 'btn btn-default' %>
+  <%= submit_tag "Import CSV", class: 'btn btn-default btn-primary' %>
 <% end %>
 <br/>
 
@@ -37,9 +37,12 @@
         <td><%= trust.trust_postcode %></td>
         <td><%= trust.trust_region %></td>
 
-        <td><%= link_to 'Show', trust %></td>
-        <td><%= link_to 'Edit', edit_trust_path(trust) %></td>
-        <td><%= link_to 'Destroy', trust, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', trust, :class => "btn btn-primary"  %></td>
+        <td><%= link_to 'Edit', edit_trust_path(trust), :class => "btn btn-primary"  %></td>
+        <td><%= link_to 'Destroy', trust,
+          method: :delete,
+          data: { confirm: 'Are you sure?' },
+          :class => "btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>

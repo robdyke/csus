@@ -10,7 +10,7 @@ gem 'devise'
 # For timezone information when developing on Windows (why you would want to do this?)ç
 gem 'tzinfo-data'
 
-# Use bootstrap and SCSS for stylesheets
+# Use bootstrap 3 and SCSS for stylesheets
 gem 'bootstrap-sass'
 gem 'sass-rails', '~> 5.0'
 

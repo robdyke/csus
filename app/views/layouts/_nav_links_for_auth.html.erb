@@ -1,15 +1,21 @@
 <% if user_signed_in? %>
-  <li><%= link_to 'Systems', systems_path %></li>
-  <li><%= link_to 'Trusts', trusts_path %></li>
-  <li><%= link_to 'Hospitals', hospitals_path %></li>
 
+  <!-- admin-only navigation links -->
+  <% if current_user.admin? %>
+    <li><%= link_to 'Trusts', trusts_path %></li>
+    <li><%= link_to 'Hospitals', hospitals_path %></li>
+    <li><%= link_to 'Systems', systems_path %></li>
+    <li><%= link_to 'Reviews', reviews_path %></li>
+  <% end %>
 
+  <!-- any logged-in users navigation links -->
   <li><%= link_to 'Edit account', edit_user_registration_path %></li>
   <li><%= link_to 'Sign out', destroy_user_session_path, :method=>'delete' %></li>
 
-
-
 <% else %>
+
+  <!-- non-logged-in users can't see anything-->
   <li><%= link_to 'Sign in', new_user_session_path %></li>
   <li><%= link_to 'Sign up', new_user_registration_path %></li>
+  
 <% end %>
