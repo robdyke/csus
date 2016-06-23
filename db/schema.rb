@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615185858) do
+ActiveRecord::Schema.define(version: 20160623094922) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,17 +34,24 @@ ActiveRecord::Schema.define(version: 20160615185858) do
     t.decimal  "sus_score"
     t.decimal  "csus_score"
     t.integer  "star_rating"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "user_id"
+    t.integer  "number_of_views", default: 0
+    t.integer  "likes",           default: 0
+    t.integer  "dislikes",        default: 0
   end
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "systems", force: :cascade do |t|
     t.text     "system_name"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                                null: false
+    t.datetime "updated_at",                                null: false
+    t.text     "system_type"
+    t.text     "system_main_web_url"
+    t.text     "system_user_group_url"
+    t.boolean  "system_sales_discontinued", default: false
   end
 
   create_table "trusts", force: :cascade do |t|

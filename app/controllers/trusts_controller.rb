@@ -1,4 +1,6 @@
 class TrustsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @trusts = Trust.order(:trust_legal_name)
   end

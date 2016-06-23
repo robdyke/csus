@@ -1,5 +1,3 @@
-<!-- <p id="notice"><%= notice %></p> -->
-
 <h1>Listing Trusts</h1>
 
 <%= link_to 'New Trust', new_trust_path %>
@@ -37,9 +35,8 @@
         <td><%= trust.trust_postcode %></td>
         <td><%= trust.trust_region %></td>
 
-        <td><%= link_to 'Show', trust, :class => "btn btn-primary"  %></td>
-        <td><%= link_to 'Edit', edit_trust_path(trust), :class => "btn btn-primary"  %></td>
-        <td><%= link_to 'Destroy', trust,
+        <td><%= link_to 'Edit', edit_trust_path(trust), :class => "btn btn-default"  %></td>
+        <td><%= link_to 'Delete', trust,
           method: :delete,
           data: { confirm: 'Are you sure?' },
           :class => "btn btn-danger" %></td>
