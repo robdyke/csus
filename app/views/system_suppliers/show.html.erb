@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Supplier name:</strong>
+  <%= @system_supplier.supplier_name %>
+</p>
+
+<p>
+  <strong>Supplier primary phone:</strong>
+  <%= @system_supplier.supplier_primary_phone %>
+</p>
+
+<p>
+  <strong>Supplier email:</strong>
+  <%= @system_supplier.supplier_email %>
+</p>
+
+<p>
+  <strong>Supplier website url:</strong>
+  <%= @system_supplier.supplier_website_url %>
+</p>
+
+<%= link_to 'Edit', edit_system_supplier_path(@system_supplier) %> |
+<%= link_to 'Back', system_suppliers_path %>

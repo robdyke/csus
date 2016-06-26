@@ -1,7 +1,7 @@
 class Review < ActiveRecord::Base
   # associations
   belongs_to :system
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
 
   # validations
   validates :review_body, presence: true

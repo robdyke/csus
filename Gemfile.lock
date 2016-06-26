@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/ifad/data-confirm-modal.git
+  revision: e6cbfe45ec0908166512d12bcef5e43a5b3ab435
+  specs:
+    data-confirm-modal (1.2.0)
+      railties (>= 3.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -226,6 +233,7 @@ DEPENDENCIES
   byebug
   capybara
   coffee-rails (~> 4.1.0)
+  data-confirm-modal!
   database_cleaner
   devise
   dotenv-rails

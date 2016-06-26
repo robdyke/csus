@@ -1,33 +1,49 @@
 <% provide(:title, 'Systems') %>
 <h1>List Systems</h1>
 
-<%= link_to 'New System', new_system_path, :class => "btn btn-default" %>
+<%= link_to 'New System', new_system_path, :class => "btn btn-info" %>
 
-<%= form_tag import_systems_path, multipart: true, :class => 'form-inline' do %>
-  <%= label_tag 'Import Systems via CSV' %>
-  <%= file_field_tag :file, class: 'btn btn-default' %>
-  <%= submit_tag "Import CSV", class: 'btn btn-default btn-primary' %>
+<%= form_tag import_systems_path, multipart: true, :class => 'form-toolbar' do %>
+  <fieldset class="form-group">
+    <%= label_tag 'Import Systems via CSV' %>
+    <%= file_field_tag :file, class: 'btn btn-default' %>
+    <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+  </fieldset>
+
+  <%= submit_tag "Import Systems from CSV", class: 'btn btn-default btn-primary' %>
+
 <% end %>
+
 <br/>
 
-<div class="row">
-  <div class="col-md-6 col-md-offset-3">
+<table>
+  <thead>
+    <tr>
+      <th colspan="1">DHI Number</th>
+      <th colspan="1">NHS ODS Code</th>
+      <th colspan="1">Legal Name</th>
+      <th colspan="1">Display Name</th>
+      <th colspan="1">Trust Type</th>
+      <th colspan="1">Postcode</th>
+      <th colspan="1">Region</th>
+    </tr>
+  </thead>
+
+  <tbody>
     <% @systems.each do |system| %>
-      <div class="entry">
-        <%= system.system_name %>
-        <%= system.system_type %>
-        <%= system.system_main_web_url %>
-        <%= system.system_user_group_url %>
+      <tr>
+        <td><%= system.system_name %></td>
+        <td><%= system.system_type %></td>
+        <td><%= system.system_main_web_url %></td>
+        <td><%= system.system_user_group_url %></td>
 
         <td><%= link_to 'Edit', edit_system_path(trust), :class => "btn btn-default"  %></td>
         <td><%= link_to 'Delete', system,
           method: :delete,
           data: { confirm: 'Are you sure?' },
           :class => "btn btn-danger" %></td>
+      </tr>
 
-      </div>
     <% end %>
-  </div>
-</div>
-
-<%= link_to 'New System', new_system_path, :class => "btn btn-default" %>
+  </tbody>
+</table>

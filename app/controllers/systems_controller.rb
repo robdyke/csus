@@ -29,7 +29,7 @@ class SystemsController < ApplicationController
 
   def import
     System.import(params[:file])
-    redirect_to trusts_path, notice: "Trusts imported"
+    redirect_to systems_path, notice: "Systems imported"
   end
 
   private

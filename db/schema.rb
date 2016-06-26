@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160623094922) do
+ActiveRecord::Schema.define(version: 20160626124230) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -44,6 +44,15 @@ ActiveRecord::Schema.define(version: 20160623094922) do
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
+  create_table "system_suppliers", force: :cascade do |t|
+    t.text     "supplier_name"
+    t.text     "supplier_primary_phone"
+    t.text     "supplier_email"
+    t.text     "supplier_website_url"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
   create_table "systems", force: :cascade do |t|
     t.text     "system_name"
     t.datetime "created_at",                                null: false
@@ -52,7 +61,10 @@ ActiveRecord::Schema.define(version: 20160623094922) do
     t.text     "system_main_web_url"
     t.text     "system_user_group_url"
     t.boolean  "system_sales_discontinued", default: false
+    t.integer  "system_supplier_id"
   end
+
+  add_index "systems", ["system_supplier_id"], name: "index_systems_on_system_supplier_id", using: :btree
 
   create_table "trusts", force: :cascade do |t|
     t.decimal  "latitude"
@@ -98,4 +110,5 @@ ActiveRecord::Schema.define(version: 20160623094922) do
 
   add_foreign_key "hospitals", "trusts"
   add_foreign_key "reviews", "users"
+  add_foreign_key "systems", "system_suppliers"
 end
