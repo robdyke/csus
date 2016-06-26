@@ -5,8 +5,6 @@
 <table>
   <thead>
     <tr>
-      <th>Hospital Name</th>
-      <th>Hospital Postcode</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,8 +12,6 @@
   <tbody>
     <% @hospitals.each do |hospital| %>
       <tr>
-        <td><%= hospital.hospital_name %></td>
-        <td><%= hospital.hospital_post_code %></td>
         <td><%= link_to 'Show', hospital %></td>
         <td><%= link_to 'Edit', edit_hospital_path(hospital) %></td>
         <td><%= link_to 'Destroy', hospital, method: :delete, data: { confirm: 'Are you sure?' } %></td>

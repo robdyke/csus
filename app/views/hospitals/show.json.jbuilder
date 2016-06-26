@@ -1,1 +1,1 @@
-json.extract! @hospital, :id, :hospital_name, :hospital_post_code
+json.extract! @hospital, :id, :created_at, :updated_at

@@ -21,6 +21,17 @@ class SystemsController < ApplicationController
     @system = System.find(params[:id])
   end
 
+  def destroy
+    System.find(params[:id]).destroy
+    flash[:success] = "System deleted"
+    redirect_to systems_path
+  end
+
+  def import
+    System.import(params[:file])
+    redirect_to trusts_path, notice: "Trusts imported"
+  end
+
   private
     def user_params
       params.require(:system).permit(:system_name)
