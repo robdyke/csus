@@ -1,10 +1,12 @@
 Rails.application.routes.draw do
+  get 'static_pages/home'
+
   resources :system_suppliers
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
-  root 'systems#index'
+  root 'static_pages#home'
 
   resources :systems do
     collection { post :import }
