@@ -1,4 +1,7 @@
 class SystemsController < ApplicationController
+  before_action :authenticate_user!
+
+
   def index
     @systems = System.order(:system_name)
   end

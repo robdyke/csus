@@ -1,5 +1,6 @@
 class HospitalsController < ApplicationController
   before_action :set_hospital, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
 
   # GET /hospitals
   # GET /hospitals.json
