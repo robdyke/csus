@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing System Suppliers</h1>
+<% provide(:title, 'cSUS-Suppliers') %>
+
+<h1>System Suppliers</h1>
+
+<%= link_to 'New System supplier', new_system_supplier_path, :class => "btn btn-info"  %>
 
 <table>
   <thead>
@@ -27,7 +31,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New System supplier', new_system_supplier_path %>

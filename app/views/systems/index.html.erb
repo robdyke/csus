@@ -1,4 +1,6 @@
-<% provide(:title, 'Systems') %>
+
+<% provide(:title, 'cSUS-Systems') %>
+
 <h1>List Systems</h1>
 
 <%= link_to 'New System', new_system_path, :class => "btn btn-info" %>
@@ -7,7 +9,7 @@
   <fieldset class="form-group">
     <%= label_tag 'Import Systems via CSV' %>
     <%= file_field_tag :file, class: 'btn btn-default' %>
-    <small class="text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+    <small class="text-muted">CSV files should have a header row with the same name as the data fields in the Trusts data model. These will be autodetected and each subsequent row will be created as a new Trust in the system.</small>
   </fieldset>
 
   <%= submit_tag "Import Systems from CSV", class: 'btn btn-default btn-primary' %>

@@ -1,14 +1,18 @@
 <% provide(:title, 'Trusts') %>
-<h1>Listing Trusts</h1>
 
-<%= link_to 'New Trust', new_trust_path %>
-<br/>
-<br/>
+<h1>Trusts</h1>
 
-<%= form_tag import_trusts_path, multipart: true, :class => 'form-inline' do %>
-  <%= label_tag 'Import Trusts via CSV' %>
-  <%= file_field_tag :file, class: 'btn btn-default' %>
-  <%= submit_tag "Import CSV", class: 'btn btn-default btn-primary' %>
+<%= link_to 'New Trust', new_trust_path, :class => "btn btn-info"  %>
+
+<%= form_tag import_trusts_path, multipart: true, :class => 'form-toolbar' do %>
+  <fieldset class="form-group">
+    <%= label_tag 'Import Trusts via CSV' %>
+    <%= file_field_tag :file, class: 'btn btn-default' %>
+    <small class="text-muted">CSV files should have a header row with the same name as the data fields in the Trusts data model. These will be autodetected and each subsequent row will be created as a new Trust in the system.</small>
+  </fieldset>
+
+  <%= submit_tag "Import Trusts from CSV", class: 'btn btn-default btn-primary' %>
+
 <% end %>
 <br/>
 
