@@ -15,12 +15,14 @@
   <fieldset>
     <div class="form-group">
 
-        <%= f.label "Give your review a title:" %>
+        <%= f.label "Give your review a title" %>
         <%= f.text_area :review_title, :autofocus => true, class: "form-control" %>
 
-        <%= f.label :review_body %>
-        <%= f.text_area :review_body, class: "form-control" %>
+        <%= f.label "What do you like most about the system?" %>
+        <%= f.text_area :review_positive_text, class: "form-control" %>
 
+        <%= f.label "What would you change about the system?" %>
+        <%= f.text_area :review_negative_text, class: "form-control" %>
 
     </div>
   </fieldset>
