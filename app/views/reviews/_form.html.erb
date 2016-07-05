@@ -1,7 +1,8 @@
 <%= form_for(@review) do |f| %>
+
   <% if @review.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+      <h2><%= pluralize(@review.errors.count, "error") %> prevented this review from being saved:</h2>
 
       <ul>
       <% @review.errors.full_messages.each do |message| %>
@@ -11,27 +12,43 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :review_title %>
-    <%= f.text_area :review_title %>
-  </div>
-  <div class="field">
-    <%= f.label :review_body %>
-    <%= f.text_area :review_body %>
-  </div>
-  <div class="field">
-    <%= f.label :sus_score %>
-    <%= f.text_field :sus_score %>
-  </div>
-  <div class="field">
-    <%= f.label :csus_score %>
-    <%= f.text_field :csus_score %>
-  </div>
-  <div class="field">
-    <%= f.label :star_rating %>
-    <%= f.number_field :star_rating %>
-  </div>
+  <fieldset>
+    <div class="form-group">
+
+        <%= f.label "Give your review a title:" %>
+        <%= f.text_area :review_title, :autofocus => true, class: "form-control" %>
+
+        <%= f.label :review_body %>
+        <%= f.text_area :review_body, class: "form-control" %>
+
+
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <p>The Systems Usability Scale is a tried and tested, cross industry measure of usability</p>
+    <div class="form-group">
+      <%= f.label "SUS Score" %>
+      <%= f.text_field :sus_score, class: "form-control" %>
+    </div>
+
+    <p>The Clinical Systems Usability Scale is a newer measure of the impact the system has on clinical workflow</p>
+    <div class="form-group">
+      <%= f.label :csus_score %>
+      <%= f.text_field :csus_score, class: "form-control" %>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <p>Star Ratings are a simple and quick way to rate a system</p>
+    <div class="form-group">
+      <%= f.label :star_rating %>
+      <%= f.number_field :star_rating, class: "form-control" %>
+    </div>
+  </fieldset>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit Review", class: "btn btn-primary" %>
   </div>
+
 <% end %>
