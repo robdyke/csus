@@ -18,7 +18,10 @@ Rails.application.routes.draw do
 
   resources :hospitals
 
+  get "reviews/new_sus" => 'reviews#new_sus', :as => :new_sus
   resources :reviews
+
+
 
   # Example resource route with options:
   #   resources :products do
