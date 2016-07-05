@@ -15,7 +15,6 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-// fix the spacing between navbar and main
-main {
-  margin-top: 60px;
+.navbar-brand img {
+  width: 150px
 }
