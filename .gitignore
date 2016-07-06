@@ -17,3 +17,6 @@
 
 #ignore database dumps
 *.sql
+
+#ignore non-trackable data files
+/data

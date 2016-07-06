@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706133941) do
+ActiveRecord::Schema.define(version: 20160706153332) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20160706133941) do
     t.integer  "trust_id"
     t.text     "system_name"
     t.integer  "csus_response_id"
+    t.text     "user_category"
   end
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree

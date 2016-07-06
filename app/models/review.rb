@@ -5,7 +5,6 @@ class Review < ActiveRecord::Base
   belongs_to :user, dependent: :destroy
 
   # validations
-  validates :review_title, presence: true
   validates :sus_score, numericality: {
     greater_than_or_equal_to: 2.5,
     less_than_or_equal_to: 100 } #lowest possible SUS score = 1 * 2.5, highest possible SUS score = 40 * 2.5
