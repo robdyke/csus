@@ -6,14 +6,20 @@
 
 <br/>
 
-<table>
+<table class="table">
   <thead>
     <tr>
-      <th colspan="1">Title</th>
-      <th colspan="1">What do you like about the system?</th>
-      <th colspan="1">What would you change about the system?</th>
+      <th colspan="1">Review Title</th>
+      <th colspan="1">System Name</th>
+      <th colspan="1">Trust Name</th>
+      <th colspan="1">User Category</th>
       <th colspan="1">SUS score</th>
       <th colspan="1">cSUS score</th>
+      <th colspan="1">Total Usability score</th>
+      <th colspan="1">What do you like about the system?</th>
+      <th colspan="1">What would you change about the system?</th>
+      <th colspan="1">cSUS Response ID (Limesurvey)</th>
+
     </tr>
   </thead>
 
@@ -21,10 +27,16 @@
     <% @reviews.each do |review| %>
       <tr>
         <td><%= review.review_title %></td>
-        <td><%= review.review_positive_text %></td>
-        <td><%= review.review_negative_text %></td>
+        <td><%= review.system_name %></td>
+        <td><%= review.trust_name %></td>
+        <td><%= review.user_category %></td>
         <td><%= review.sus_score %></td>
         <td><%= review.csus_score %></td>
+        <td><%= review.csus_score + review.sus_score %></td>
+        <td><%= review.review_positive_text %></td>
+        <td><%= review.review_negative_text %></td>
+        <td><%= review.csus_response_id %></td>
+
         <div class="form-group">
           <td><%= link_to 'Show', review, :class => "btn btn-primary" %></td>
           <td><%= link_to 'Edit', edit_review_path(review), :class => "btn btn-primary"  %></td>
