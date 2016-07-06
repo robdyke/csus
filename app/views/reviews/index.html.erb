@@ -2,24 +2,23 @@
 
 <h1>Reviews</h1>
 
-<%= link_to 'New Review', new_review_path, :class => "btn btn-info"  %>
+<%= link_to 'Create a New Review', new_review_path, :class => "btn btn-info"  %>
 
 <br/>
 
-<table class="table">
+<table class="table table-condensed table-striped table-hover" id="reviews_index_table">
   <thead>
     <tr>
-      <th colspan="1">Review Title</th>
-      <th colspan="1">System Name</th>
-      <th colspan="1">Trust Name</th>
-      <th colspan="1">User Category</th>
-      <th colspan="1">SUS score</th>
-      <th colspan="1">cSUS score</th>
-      <th colspan="1">Total Usability score</th>
-      <th colspan="1">What do you like about the system?</th>
-      <th colspan="1">What would you change about the system?</th>
-      <th colspan="1">cSUS Response ID (Limesurvey)</th>
-
+      <th>Review Title</th>
+      <th>System Name</th>
+      <th>Trust Name</th>
+      <th>User Category</th>
+      <th>SUS score</th>
+      <th>cSUS score</th>
+      <th>Total Usability score</th>
+      <th>What do you like about the system?</th>
+      <th>What would you change about the system?</th>
+      <th>cSUS Response ID (Limesurvey)</th>
     </tr>
   </thead>
 
@@ -33,14 +32,14 @@
         <td><%= review.sus_score %></td>
         <td><%= review.csus_score %></td>
         <td><%= review.csus_score + review.sus_score %></td>
-        <td><%= review.review_positive_text %></td>
-        <td><%= review.review_negative_text %></td>
+        <td><%= review.review_positive_text.to_s[0..50] %></td>
+        <td><%= review.review_negative_text.to_s[0..50] %></td>
         <td><%= review.csus_response_id %></td>
 
         <div class="form-group">
-          <td><%= link_to 'Show', review, :class => "btn btn-primary" %></td>
-          <td><%= link_to 'Edit', edit_review_path(review), :class => "btn btn-primary"  %></td>
-          <td><%= link_to 'Destroy', review,
+          <td><%= link_to 'Show', review, :class => "btn btn-default" %></td>
+          <td><%= link_to 'Edit', edit_review_path(review), :class => "btn btn-default"  %></td>
+          <td><%= link_to 'Delete', review,
             method: :delete,
             data: { confirm: 'Are you sure?' },
             :class => "btn btn-danger" %>

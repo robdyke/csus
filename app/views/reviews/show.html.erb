@@ -1,34 +1,13 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title</strong>
-  <%= @review.review_title %>
-</p>
-
-<p>
-  <strong>What do you like about the system?</strong>
-  <%= @review.review_positive_text %>
-</p>
-
-<p>
-  <strong>What would you change about the system?</strong>
-  <%= @review.review_negative_text %>
-</p>
-
-<p>
-  <strong>SUS score</strong>
-  <%= @review.sus_score %>
-</p>
-
-<p>
-  <strong>cSUS score</strong>
-  <%= @review.csus_score %>
-</p>
-
-<p>
-  <strong>Star Rating</strong>
-  <%= @review.star_rating %>
-</p>
+<table class="table table-hover">
+  <% @review.attributes.each do |attribute_name, attribute_value| %>
+    <tr>
+      <td><%= attribute_name %></td>
+      <td><%= attribute_value %></td>
+    </tr>
+  <% end %>
+</table>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
