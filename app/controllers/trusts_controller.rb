@@ -23,6 +23,16 @@ class TrustsController < ApplicationController
     @trust = Trust.find(params[:id])
   end
 
+  def update
+    @trust = Trust.find(params[:id])
+    if @trust.update_attributes(trust_params)
+      flash[:success] = "Trust updated successfully"
+      redirect_to @trust
+    else
+      render 'edit'
+    end
+  end
+
   def show
     @trust = Trust.find(params[:id])
   end

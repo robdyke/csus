@@ -13,6 +13,11 @@ class ReviewsController < ApplicationController
   def show
   end
 
+  def import
+    Review.import(params[:file])
+    redirect_to reviews_path, notice: "Reviews imported"
+  end
+
   # GET /reviews/new
   def new
     @review = Review.new
@@ -77,6 +82,6 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:review_title, :review_body, :sus_score, :csus_score, :star_rating)
+      params.require(:review).permit(:review_title, :review_positive_text, :review_negative_text, :sus_score, :csus_score, :star_rating)
     end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160705135734) do
+ActiveRecord::Schema.define(version: 20160706133941) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,11 @@ ActiveRecord::Schema.define(version: 20160705135734) do
     t.integer  "likes",                default: 0
     t.integer  "dislikes",             default: 0
     t.text     "review_negative_text"
+    t.text     "trust_type"
+    t.text     "trust_name"
+    t.integer  "trust_id"
+    t.text     "system_name"
+    t.integer  "csus_response_id"
   end
 
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
