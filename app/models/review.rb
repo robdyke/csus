@@ -2,7 +2,7 @@ class Review < ActiveRecord::Base
   # associations
   belongs_to :system
   belongs_to :trust
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   # validations
   validates :sus_score, numericality: {

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706153332) do
+ActiveRecord::Schema.define(version: 20160706210352) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,8 +47,10 @@ ActiveRecord::Schema.define(version: 20160706153332) do
     t.text     "system_name"
     t.integer  "csus_response_id"
     t.text     "user_category"
+    t.integer  "system_id"
   end
 
+  add_index "reviews", ["system_id"], name: "index_reviews_on_system_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "system_suppliers", force: :cascade do |t|
@@ -119,6 +121,7 @@ ActiveRecord::Schema.define(version: 20160706153332) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "hospitals", "trusts"
+  add_foreign_key "reviews", "systems"
   add_foreign_key "reviews", "users"
   add_foreign_key "systems", "system_suppliers"
 end

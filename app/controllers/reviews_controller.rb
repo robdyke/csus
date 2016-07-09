@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
   # GET /reviews
   # GET /reviews.json
   def index
-    @reviews = Review.all
+    @reviews = Review.all.order(created_at: :desc)
   end
 
   # GET /reviews/1
@@ -30,7 +30,7 @@ class ReviewsController < ApplicationController
   # POST /reviews
   # POST /reviews.json
   def create
-    @review = Review.new(review_params)
+    @review = current_user.reviews.new(review_params)
 
     respond_to do |format|
       if @review.save
@@ -62,7 +62,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: 'Review was successfully destroyed.' }
+      format.html { redirect_to reviews_url, notice: 'Review was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -82,6 +82,23 @@ class ReviewsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def review_params
-      params.require(:review).permit(:id, :review_title, :review_positive_text, :sus_score, :csus_score, :star_rating, :user_id, :number_of_views, :likes, :dislikes, :review_negative_text, :trust_type, :trust_name, :trust_id, :system_name, :csus_response_id)
+      params.require(:review).permit(
+        :id,
+        :trust_id,      #foreign_key
+        :user_id,       #foreign_key
+        :system_id,     #foreign_key
+        :review_title,
+        :review_positive_text,
+        :sus_score,
+        :csus_score,
+        :star_rating,
+        :number_of_views,
+        :likes,
+        :dislikes,
+        :review_negative_text,
+        :trust_type,
+        :trust_name,
+        :system_name,
+        :csus_response_id)
     end
 end

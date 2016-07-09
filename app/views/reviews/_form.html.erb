@@ -17,8 +17,13 @@
   <fieldset>
     <div class="form-group">
 
+        <div class="dropdown">
+        <%= f.label "Which system would you like to review?" %>
+        <%= f.collection_select :system_id, System.all, :id, :system_name,  {:include_blank => true}, {class: "dropdown-menu"} %>
+        </div>
+
         <%= f.label "Give your review a title" %>
-        <%= f.text_area :review_title, :autofocus => true, class: "form-control" %>
+        <%= f.text_area :review_title, class: "form-control" %>
 
         <%= f.label "What do you like most about the system?" %>
         <%= f.text_area :review_positive_text, class: "form-control" %>
