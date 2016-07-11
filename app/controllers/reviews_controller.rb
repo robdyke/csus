@@ -67,7 +67,9 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def new_sus
+  def sus_modal
+    @sus_score = SusScore.new
+
     respond_to do |format|
       format.html
       format.js

@@ -15,7 +15,7 @@
       <th>User Category</th>
       <th>SUS score</th>
       <th>cSUS score</th>
-      <th>Total Usability score</th>
+      <!-- <th>Total Usability score</th> -->
       <th>What do you like about the system?</th>
       <th>What would you change about the system?</th>
       <th>cSUS Response ID (Limesurvey)</th>
@@ -31,7 +31,7 @@
         <td><%= review.user_category %></td>
         <td><%= review.sus_score %></td>
         <td><%= review.csus_score %></td>
-        <td><%= review.csus_score + review.sus_score %></td>
+        <!-- <td><%# #review.csus_score + review.sus_score %></td> -->
         <td><%= review.review_positive_text.to_s[0..50] %></td>
         <td><%= review.review_negative_text.to_s[0..50] %></td>
         <td><%= review.csus_response_id %></td>

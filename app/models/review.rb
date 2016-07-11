@@ -3,6 +3,8 @@ class Review < ActiveRecord::Base
   belongs_to :system
   belongs_to :trust
   belongs_to :user
+  has_one :sus_score, dependent: :destroy
+  has_one :clinical_sus_score, dependent: :destroy
 
   # validations
   validates :sus_score, numericality: {

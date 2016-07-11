@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Sus Scores</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sus_scores.each do |sus_score| %>
+      <tr>
+        <td><%= link_to 'Show', sus_score %></td>
+        <td><%= link_to 'Edit', edit_sus_score_path(sus_score) %></td>
+        <td><%= link_to 'Destroy', sus_score, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sus score', new_sus_score_path %>

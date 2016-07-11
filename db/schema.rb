@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160706210352) do
+ActiveRecord::Schema.define(version: 20160709161326) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,20 @@ ActiveRecord::Schema.define(version: 20160706210352) do
 
   add_index "reviews", ["system_id"], name: "index_reviews_on_system_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
+
+  create_table "sus_scores", force: :cascade do |t|
+    t.string   "reduces_the_risk_of_clinical_error"
+    t.string   "support_is_hard_to_access"
+    t.string   "improves_quality_clinical_care"
+    t.string   "consultation_adversely_affected"
+    t.string   "gives_me_key_information_needed"
+    t.integer  "total_csus_score"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.integer  "review_id"
+  end
+
+  add_index "sus_scores", ["review_id"], name: "index_sus_scores_on_review_id", using: :btree
 
   create_table "system_suppliers", force: :cascade do |t|
     t.text     "supplier_name"

@@ -1,0 +1,29 @@
+<%= bootstrap_form_for(@sus_score) do |f| %>
+  <% if @sus_score.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sus_score.errors.count, "error") %> prohibited this sus_score from being saved:</h2>
+
+      <ul>
+      <% @sus_score.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= f.form_group :reduces_the_risk_of_clinical_error,
+    label: { text: "reduces_the_risk_of_clinical_error" },
+    help: "Optional Help Text" do %>
+
+    <%= f.radio_button :reduces_the_risk_of_clinical_error, 4, label: "Strongly Agree" %>
+    <%= f.radio_button :reduces_the_risk_of_clinical_error, 3, label: "Agree" %>
+    <%= f.radio_button :reduces_the_risk_of_clinical_error, 2, label: "Don't Know" %>
+    <%= f.radio_button :reduces_the_risk_of_clinical_error, 1, label: "Disagree" %>
+    <%= f.radio_button :reduces_the_risk_of_clinical_error, 0, label: "Strongly Disagree" %>
+    
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
