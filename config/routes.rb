@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :hospitals
 
   get "reviews/sus_modal" => 'reviews#sus_modal', :as => :new_sus
+  post "reviews/sus_modal" => 'reviews#create_sus', :as => :create_sus
   resources :reviews do
     collection { post :import }
   end

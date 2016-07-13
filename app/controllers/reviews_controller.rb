@@ -91,8 +91,8 @@ class ReviewsController < ApplicationController
         :system_id,     #foreign_key
         :review_title,
         :review_positive_text,
-        :sus_score,
-        :csus_score,
+        :sus_score_placeholder,
+        :csus_score_placeholder,
         :star_rating,
         :number_of_views,
         :likes,
