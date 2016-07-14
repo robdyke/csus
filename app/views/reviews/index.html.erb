@@ -9,7 +9,6 @@
 <table class="table table-condensed table-striped table-hover" id="reviews_index_table">
   <thead>
     <tr>
-      <th>Review Title</th>
       <th>System Name</th>
       <th>Trust Name</th>
       <th>User Category</th>
@@ -25,12 +24,11 @@
   <tbody>
     <% @reviews.each do |review| %>
       <tr>
-        <td><%= review.review_title %></td>
         <td><%= review.system_name %></td>
         <td><%= review.trust_name %></td>
         <td><%= review.user_category %></td>
-        <td><%= review.sus_score %></td>
-        <td><%= review.csus_score %></td>
+        <td><%= review.sus_score_placeholder %></td>
+        <td><%= review.csus_score_placeholder %></td>
         <!-- <td><%# #review.csus_score + review.sus_score %></td> -->
         <td><%= review.review_positive_text.to_s[0..50] %></td>
         <td><%= review.review_negative_text.to_s[0..50] %></td>

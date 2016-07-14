@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160713090141) do
+ActiveRecord::Schema.define(version: 20160713171752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -34,12 +34,12 @@ ActiveRecord::Schema.define(version: 20160713090141) do
     t.decimal  "sus_score_placeholder"
     t.decimal  "csus_score_placeholder"
     t.integer  "star_rating"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.integer  "user_id"
-    t.integer  "number_of_views",        default: 0
-    t.integer  "likes",                  default: 0
-    t.integer  "dislikes",               default: 0
+    t.integer  "number_of_views",                    default: 0
+    t.integer  "likes",                              default: 0
+    t.integer  "dislikes",                           default: 0
     t.text     "review_negative_text"
     t.text     "trust_type"
     t.text     "trust_name"
@@ -48,24 +48,16 @@ ActiveRecord::Schema.define(version: 20160713090141) do
     t.integer  "csus_response_id"
     t.text     "user_category"
     t.integer  "system_id"
+    t.integer  "reduces_the_risk_of_clinical_error"
+    t.integer  "support_is_hard_to_access"
+    t.integer  "improves_quality_clinical_care"
+    t.integer  "consultation_adversely_affected"
+    t.integer  "gives_me_key_information_needed"
+    t.integer  "total_csus_score"
   end
 
   add_index "reviews", ["system_id"], name: "index_reviews_on_system_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
-
-  create_table "sus_scores", force: :cascade do |t|
-    t.string   "reduces_the_risk_of_clinical_error"
-    t.string   "support_is_hard_to_access"
-    t.string   "improves_quality_clinical_care"
-    t.string   "consultation_adversely_affected"
-    t.string   "gives_me_key_information_needed"
-    t.integer  "total_csus_score"
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.integer  "review_id"
-  end
-
-  add_index "sus_scores", ["review_id"], name: "index_sus_scores_on_review_id", using: :btree
 
   create_table "system_suppliers", force: :cascade do |t|
     t.text     "supplier_name"

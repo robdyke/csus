@@ -23,6 +23,17 @@ class ReviewsController < ApplicationController
     @review = Review.new
   end
 
+  def add_csus
+    @review = current_user.reviews.new(review_params)
+    if @review.save
+      render :add_csus
+    end
+  end
+
+  def compare
+    @other_reviews = Review.where(system_name: "SystmOne Child Health (TPP)")
+  end
+
   # GET /reviews/1/edit
   def edit
   end
@@ -31,10 +42,11 @@ class ReviewsController < ApplicationController
   # POST /reviews.json
   def create
     @review = current_user.reviews.new(review_params)
+    @review.total_csus_score=2.5*(@review.reduces_the_risk_of_clinical_error+@review.support_is_hard_to_access+@review.improves_quality_clinical_care+@review.consultation_adversely_affected+@review.gives_me_key_information_needed)
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to @review, notice: 'Review was successfully created.' }
+        format.html { redirect_to :compare_reviews, notice: 'Review was successfully created.' }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new }
@@ -67,15 +79,6 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def sus_modal
-    @sus_score = SusScore.new
-
-    respond_to do |format|
-      format.html
-      format.js
-    end
-  end
-
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_review
@@ -93,6 +96,11 @@ class ReviewsController < ApplicationController
         :review_positive_text,
         :sus_score_placeholder,
         :csus_score_placeholder,
+        :reduces_the_risk_of_clinical_error,
+        :support_is_hard_to_access,
+        :improves_quality_clinical_care,
+        :consultation_adversely_affected,
+        :gives_me_key_information_needed,
         :star_rating,
         :number_of_views,
         :likes,
