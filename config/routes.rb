@@ -18,7 +18,11 @@ Rails.application.routes.draw do
 
   resources :hospitals
 
-  resources :reviews
+  get "reviews/add_csus" => 'reviews#add_csus', :as => :add_csus
+  resources :reviews do
+    collection { post :import }
+    collection { get :compare }
+  end
 
   # Example resource route with options:
   #   resources :products do

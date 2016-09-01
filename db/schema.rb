@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160626124230) do
+ActiveRecord::Schema.define(version: 20160713171752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,18 +30,33 @@ ActiveRecord::Schema.define(version: 20160626124230) do
 
   create_table "reviews", force: :cascade do |t|
     t.text     "review_title"
-    t.text     "review_body"
-    t.decimal  "sus_score"
-    t.decimal  "csus_score"
+    t.text     "review_positive_text"
+    t.decimal  "sus_score_placeholder"
+    t.decimal  "csus_score_placeholder"
     t.integer  "star_rating"
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.integer  "user_id"
-    t.integer  "number_of_views", default: 0
-    t.integer  "likes",           default: 0
-    t.integer  "dislikes",        default: 0
+    t.integer  "number_of_views",                    default: 0
+    t.integer  "likes",                              default: 0
+    t.integer  "dislikes",                           default: 0
+    t.text     "review_negative_text"
+    t.text     "trust_type"
+    t.text     "trust_name"
+    t.integer  "trust_id"
+    t.text     "system_name"
+    t.integer  "csus_response_id"
+    t.text     "user_category"
+    t.integer  "system_id"
+    t.integer  "reduces_the_risk_of_clinical_error"
+    t.integer  "support_is_hard_to_access"
+    t.integer  "improves_quality_clinical_care"
+    t.integer  "consultation_adversely_affected"
+    t.integer  "gives_me_key_information_needed"
+    t.integer  "total_csus_score"
   end
 
+  add_index "reviews", ["system_id"], name: "index_reviews_on_system_id", using: :btree
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id", using: :btree
 
   create_table "system_suppliers", force: :cascade do |t|
@@ -103,12 +118,16 @@ ActiveRecord::Schema.define(version: 20160626124230) do
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
     t.boolean  "admin",                  default: false
+    t.integer  "user_age"
+    t.datetime "user_date_of_birth"
+    t.integer  "trust_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   add_foreign_key "hospitals", "trusts"
+  add_foreign_key "reviews", "systems"
   add_foreign_key "reviews", "users"
   add_foreign_key "systems", "system_suppliers"
 end

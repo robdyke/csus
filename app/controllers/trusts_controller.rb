@@ -23,13 +23,27 @@ class TrustsController < ApplicationController
     @trust = Trust.find(params[:id])
   end
 
+  def update
+    @trust = Trust.find(params[:id])
+    if @trust.update_attributes(trust_params)
+      flash[:success] = "Trust updated successfully"
+      redirect_to @trust
+    else
+      render 'edit'
+    end
+  end
+
   def show
     @trust = Trust.find(params[:id])
   end
 
   def import
-    Trust.import(params[:file])
-    redirect_to trusts_path, notice: "Trusts imported"
+    if params[:file]
+      Trust.import(params[:file])
+      redirect_to trusts_path, notice: "CSV imported"
+    else
+      redirect_to trusts_path, alert: "Please select a CSV file for import"
+    end
   end
 
   def destroy

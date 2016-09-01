@@ -3,12 +3,17 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%= content_for?(:title) ? yield(:title) : "cSUS Platform" %></title>
-    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Csus" %>">
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Compare The Software" %>">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
   <body>
+    <!-- comtainer for Bootstrap modals across the application -->
+
+    <div id="modal-container" class="modal" role="dialog" aria-labelledby="modal" aria-hidden="true"></div>
+
+    <!-- main Bootstrap container -->
     <div class="container">
 
       <header>
