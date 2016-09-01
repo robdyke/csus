@@ -10,9 +10,12 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require data-confirm-modal
+
+
+//= require turbolinks
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require bootstrap-sprockets
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
